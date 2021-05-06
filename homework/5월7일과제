@@ -1,1 +1,121 @@
+**MyMethod 클래스를 만들고** 
+ **그 안에 다음 메서드들을 정의하세요.**
+
+**Homework01 메인 클래스**
+ **MyMethod 에 정의된 메서드를 모두 최소 1회씩 호출하세요. (자유롭게)**
+
+```java
+package com.day12.homework;
+
+
+public class MyMethod {
+		
+		/*
+		  함수명 : get_average()
+    	인자 : 국, 영, 수
+    	하는 일 : 세 과목의 평균 구하기
+    	리턴 : 평균
+		 */
+		double get_average(int kor,int eng, int math) {
+			double avg = ((double)kor + eng + math)/3;
+			return avg;
+		}
+		
+		/*
+		 	 함수명 : print_stars()
+    		인자 : 정수
+    		하는 일 : 해당 정수 개수만큼 '*'을 출력
+    		리턴 : 없음
+		 */
+		void print_stars(int i) {
+			for(int a = 0; a<=i; ++a) {
+				System.out.print("*");
+			}
+			System.out.println();
+		}
+		/*
+		 	함수명 : greet()
+    		인자 : 이름, 나이
+    		하는 일 :
+        		미성년자인 경우 : XX(아)야, 안녕? 를 return
+        		성인인 경우 : XX님, 안녕하세요? 를 return
+    		리턴 : 위 둘 중 하나의 문장(String)
+		 */
+		String greet(String name, int age) {
+			if(age<20) {
+				return name + "(아)야, 안녕?";
+			}
+			else {
+				return name + "님, 안녕하세요?";
+			} 
+		}
+		/*
+		 	함수명 : calc
+    		인자 : 정수 2개, 단어 1개
+    		하는 일 :
+        		인자로 들어온 단어가 +, -, *, /, %, **, // 인 경우
+            		해당 단어에 따른 연산 수행
+        		그 외
+            		'잘못된 기호'를 출력 후
+            		연산 결과는 0
+    		리턴 : 연산 결과
+		 */
+		double calc(int num1, int num2, char word) {
+			double result = 0;
+			if(word == '+') {
+				result = num1 + num2;
+			}
+			else if(word == '-') {
+				result = num1 - num2;
+			}
+			else if(word == '*') {
+				result = num1 * num2;
+			}
+			else if(word == '/') {
+				result = num1 / num2;
+			}
+			else if(word == '%') {
+				result = num1 % num2;
+			}
+			else {
+				return 0;
+			}
+			return result;
+		}	
+}
+```
+
+```java
+package com.day12.homework;
+
+public class Homework02 {
+	public static void main(String[] args) {
+		
+		MyMethod mmd = new MyMethod();
+		
+		int kor = 70;
+		int math = 80;
+		int eng = 100;
+		double avg = mmd.get_average(kor, eng, math);
+		System.out.println(avg);
+		
+		int nums = 15;
+		mmd.print_stars(nums);
+		
+		String name = "고상현";
+		int age = 29;
+		String a = mmd.greet(name, age);
+		System.out.println(a);
+		
+		
+		int num1 = 10;
+		int num2 = 20;
+		double num = mmd.calc(num1, num2, '+');
+		System.out.println(num);
+		
+	}
+}
+```
+
+
 
